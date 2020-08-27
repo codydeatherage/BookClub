@@ -10,8 +10,8 @@ THINGS TO INSTALL:
     ### `git clone https://github.com/codydeatherage/BookClub.git`
 
 2. To install all the node modules required:
-   a) ###`cd bookclub`
-   b) ###`npm install` 
+   ### `cd bookclub`
+   ### `npm install` 
 
 
 
