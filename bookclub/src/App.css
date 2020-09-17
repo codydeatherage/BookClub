@@ -36,3 +36,106 @@
     transform: rotate(360deg);
   }
 }
+
+.btn-google{
+  background-color: rgb(250,68,55);
+}
+
+.card-title{
+  font-weight: 300;
+}
+
+.card{
+  align-self: center;
+  box-shadow: 0 4px 15px 0 rgba(0,0,0,0.2);
+  position: relative;
+
+}
+
+.background{
+  /* background-color:#e74c3c; */
+  background-repeat: no-repeat;
+  padding-top: 20px;
+  background-image: url('./assets/janko.jpg');
+  background-size:98% 100%;
+  object-fit: contain;
+}
+
+/* .card:hover{
+  box-shadow: 0 8px 25px 0 rgba(0,0,0,0.2);
+} */
+
+.card-img-top{
+  border-style: dotted;
+  height: 50%;
+  width: 50%;
+}
+
+.card-body{
+  text-align: center;
+}
+
+.card-signin{
+  width: 85%;
+  align-content: center;
+  height: 40%;
+}
+
+.form-signin{
+  text-align: left;
+}
+
+.form-header{
+  margin-top: 20px;
+  font-weight: 400;
+}
+
+.container{
+  margin-right: 0px;
+}
+
+.container-signin{
+  text-align: center;
+  background-color: rgb(252, 240, 225);
+  width: 30rem;
+  height: 97.5vh; 
+  padding-top: 100px;
+}
+
+.sign-in-image{
+  height: 155px;
+  width: 155px;
+}
+
+.img-size{
+  height: 50px;
+  width: 50px;
+}
+
+.font-size{
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.navbar{
+  background-color: rgb(247, 229, 206);
+}
+.navbar-padding{
+  padding-left: 5px;
+}
+
+.nav-item{
+  padding-right: 10px;
+  color: black; 
+  height: 100%;
+}
+
+.nav-link{
+  color: black;
+}
+
+.btn-signup{
+  background-color: #007bff;
+}
+
+
