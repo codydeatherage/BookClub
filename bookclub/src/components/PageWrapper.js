@@ -25,7 +25,7 @@ class PageWrapper extends Component{
                                 </Link>
                             </li>
                             <li className="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Books
                                 </a>
                                 <div className="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -40,7 +40,9 @@ class PageWrapper extends Component{
                         </ul>
                         <form className="form-inline my-2 my-lg-0">
                             {/* <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"></input> */}
-                            <button className="btn border border-secondary my-2 my-sm-0 rounded-pill" type="submit">Sign in</button>
+                                <Link to="signUp">
+                                    <button className="btn border border-secondary my-2 my-sm-0 rounded-pill" type="submit">Sign Up</button>
+                                </Link>
                         </form>
                     </div>
                  </nav>
