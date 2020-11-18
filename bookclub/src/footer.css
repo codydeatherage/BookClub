@@ -44,7 +44,10 @@
       }
       .link-md-one, .link-md-two, .link-md-three{
         flex-basis: 100%;
-        left: 50%;
+    /*     left: 50%; */
+      }
+      .row{
+          justify-content: center;
       }
       .social-media-link{
         padding-bottom: 10px;
@@ -58,17 +61,14 @@
     display: block;
     font-size: 0.9375rem;
     font-weight: 300;
-    /* padding: 20px; */
     cursor: pointer;
     width: 100%;
   }
 
   /*social media icons (level 2)*/
   .social-media-link{
-    right: 15px;
     position: relative;
-    top: 15%;
-    
+    top: 15%; 
   }
   
   /*social media icons (level 1)*/
