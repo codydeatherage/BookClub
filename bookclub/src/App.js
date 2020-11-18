@@ -4,7 +4,9 @@ import './App.css';
 
 import PageWrapper from './components/PageWrapper';
 import LoginReplace from './components/LoginReplace';
-
+import Home from './components/Home';
+import Discussion from './components/Discussion';
+import Footer from './components/Footer';
 
 class App extends Component {
   render(){
@@ -14,9 +16,22 @@ class App extends Component {
         <Route
           exact={true}
           path="/"
+          component={Home}
+        />
+        <Route
+          exact={true}
+          path="/signUp"
           component={LoginReplace}
         />
+        <Route
+          exact={true}
+          path="/discussion"
+          /* file={PDFJs} */
+          src= "./assets/The_Da_Vinci_Code"
+          component={Discussion}
+        />
       </PageWrapper>
+      <Footer></Footer>
     </Router>
   );
     }

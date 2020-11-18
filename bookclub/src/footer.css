@@ -1,0 +1,90 @@
+/*all contents within the footer*/
+.footer-container{
+    position: absolute;
+    text-align: center;
+    background-color: rgb(21, 20, 18);
+    color: rgb(247, 236, 225);
+    width: 100%;
+  }
+  
+  /*classy book reading club (level 2)*/
+  .nav-link-one{
+    position: relative;
+    width: 100%;
+    background-color: rgb(255, 238, 0);
+    word-wrap: none;
+  }
+  
+  /*classy book reading club footer link (deepest level/level 1) */
+  .footer-logo{
+    word-wrap: none;
+    width: 100%;
+  }
+  
+  /*books, what do?, who do? (level 3)*/
+  .nav-link-md{
+    position: relative;
+    background-color: rgb(1, 207, 243);
+    display: inline-block;
+  }
+  
+  /*books, what do?, who do? (level 2)*/
+  .footer-link{
+    position: relative;
+    justify-content: space-between;
+    display: flex;
+    font-size: 15px;
+    height: 100%;
+    width: 100%;
+  }
+  
+  @media only screen and (max-width: 991px) {
+      .footer-link{
+        flex-wrap: wrap;
+      }
+      .link-md-one, .link-md-two, .link-md-three{
+        flex-basis: 100%;
+        left: 50%;
+      }
+      .social-media-link{
+        padding-bottom: 10px;
+      }
+  }
+
+  /*same class to define books, what do?, who do? (level 1)*/
+  .link{
+    position: relative;
+    color: rgb(255,255,255);
+    display: block;
+    font-size: 0.9375rem;
+    font-weight: 300;
+    /* padding: 20px; */
+    cursor: pointer;
+    width: 100%;
+  }
+
+  /*social media icons (level 2)*/
+  .social-media-link{
+    right: 15px;
+    position: relative;
+    top: 15%;
+    
+  }
+  
+  /*social media icons (level 1)*/
+  .fab{
+    color: white;
+    display: inline-block;
+  }
+  
+  /*copyright (level 2)*/
+  .copyright-footer{
+    justify-content: center;
+    border-top: 1px solid rgb(128, 102, 77);
+  }
+  
+  /*copyright (level 1)*/
+  .copyright{
+    position: relative;
+    padding-top: 20px;
+  }

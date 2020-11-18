@@ -42,7 +42,7 @@
 }
 
 .card-title{
-  font-weight: 300;
+  font-weight: 100;
 }
 
 .card{
@@ -134,8 +134,74 @@
   color: black;
 }
 
+.members-list{
+  color: blue;
+  padding-left: 10px;
+  font-size: large;
+  font-weight: 100;
+}
+
+.bg-home{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color:  rgb(218, 83, 42);
+}
+
+.discord-logo{
+  height: 50%;
+  width: 50%;
+}
+
+.discord{
+  background-color: #7289da; 
+  text-align: bottom;
+
+}
+
+.discord-label{
+  font-weight: 200;
+  text-align: center;
+}
+
+.currently-reading{
+  word-wrap: normal;
+  width: 100%;
+  height:100%;
+
+}
+.book-img{
+  width: 30%;
+  height: 30%;
+}
+.book{
+  text-align: center;
+}
+.col-members{
+  padding-left: 10px;
+}
+.container-home{
+  position: relative;
+  top: 8%;
+  left:0.25%;
+}
+
+.card-members{
+  background-color: black;
+}
+
+
 .btn-signup{
   background-color: #007bff;
+}
+
+.pdf-viewer{
+  position: relative;
+  left: calc(50% - 300px);
+  top: 100px;
+  height: 900px;
+  width: 700px;
+  border: 2px solid black;
 }
 
 
