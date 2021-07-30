@@ -5,7 +5,6 @@ import './App.css';
 import PageWrapper from './components/PageWrapper';
 import LoginReplace from './components/LoginReplace';
 import Home from './components/Home';
-import Discussion from './components/Discussion';
 import Footer from './components/Footer';
 
 class App extends Component {
@@ -23,13 +22,13 @@ class App extends Component {
           path="/signUp"
           component={LoginReplace}
         />
-        <Route
+     {/*    <Route
           exact={true}
           path="/discussion"
-          /* file={PDFJs} */
+          
           src= "./assets/The_Da_Vinci_Code"
           component={Discussion}
-        />
+        /> */}
       </PageWrapper>
       <Footer></Footer>
     </Router>

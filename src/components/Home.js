@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
-import image from './../assets/davinci-cover.jpg';
-import discordLogo from './../assets/discord3.png';
+import React, {Component} from 'react';/* 
+import image from './../assets/davinci-cover.jpg';*/
+import discordLogo from './../assets/discord3.png'; 
 
 let members = [
     'Chris',
@@ -43,7 +43,7 @@ class Home extends Component{
                                 <div className="card card-members">           
                                     <h1 className="card-title">Currently Reading: The DaVinci Code (Week 1)</h1>
                                     <div className="book">
-                                        <img className="book-img my-5" src={image}></img>
+                                        <img className="book-img my-5" src={discordLogo}></img>
                                     </div>                                              
                                 </div>
                             </div>
