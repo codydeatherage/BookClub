@@ -20,7 +20,7 @@ const Input = ({ id, type, placeholder, text }) => {
     if (type === "checkbox") {
         return (
             <InputContainer style={{ textAlign: 'center' }} >
-                <Input style={{ width: '5%' }} type="checkbox" id={id} />
+                <Field style={{ width: '5%' }} type={type} id={id} />
                 <label htmlFor={id}>{text}</label>
             </InputContainer>
         )
@@ -29,7 +29,7 @@ const Input = ({ id, type, placeholder, text }) => {
         return (
             <InputContainer>
                 <InputLabel htmlFor={id}>{text}</InputLabel>
-                <Field type={type} id={id} placeholder={placeholder} required autofocus />
+                <Field type={type} id={id} placeholder={placeholder} required autoFocus />
             </InputContainer>
         )
     }
