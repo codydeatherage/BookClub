@@ -16,12 +16,18 @@ const App = () => {
   const handleSubmit = async e => {
     e.preventDefault();
     const user = { username, password };
-    setUser(user);
-    localStorage.setItem('user', user);
+    if (username && password) {
+
+      setUser(user);
+      localStorage.setItem('user', user);
+    }
+    else{
+      window.alert('please enter username/password');
+    }
   }
 
-  const handleLogout = () =>{
-    setUser({});
+  const handleLogout = () => {
+    setUser();
     setUsername('');
     setPassword('');
     localStorage.clear();
@@ -37,7 +43,7 @@ const App = () => {
   }, []);
 
   if (!user) {
-    return <Login changeUser={setUsername} changePass={setPassword} login={handleSubmit}/>
+    return <Login changeUser={setUsername} changePass={setPassword} login={handleSubmit} />
   }
   else {
     return (
@@ -48,7 +54,7 @@ const App = () => {
             path="/"
             component={Home}
           />
-    {/*       <Route
+          {/*       <Route
             exact={true}
             path="/signUp"
             component={LoginReplace}
@@ -66,7 +72,7 @@ const App = () => {
           component={Discussion}
         /> */}
         </PageWrapper>
-        <Footer></Footer>
+        {/*        <Footer></Footer> */}
       </Router>
     );
   }

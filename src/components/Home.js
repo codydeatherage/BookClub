@@ -24,7 +24,7 @@ const Home = () => {
                             <div id="members-list">
                                 <h1 className="card-title">Members ({activeMembers})</h1>
                                 {members.map((name, index) => {
-                                    return (<h1 className="members-list" key="index">{name}</h1>)
+                                    return (<h1 className="members-list" key={`index${name}`}>{name}</h1>)
                                 })}
                             </div>
                         </div>

@@ -118,7 +118,9 @@
 }
 
 .navbar{
-  background-color: rgb(247, 229, 206);
+  background-color: rgb(24, 24, 24);
+  color:rgb(218, 83, 42);
+
 }
 .navbar-padding{
   padding-left: 5px;
