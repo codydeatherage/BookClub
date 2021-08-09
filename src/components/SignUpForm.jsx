@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import React, { useState } from 'react'
 import owlImage from './../assets/owl.jpg'
-import Input from './Input'
 import api from '../api'
 
 const FormBody = styled.div.attrs({
@@ -38,7 +37,7 @@ const Header = styled.h1`
 
 const Button = styled.button`
     width: 50%;
-    height: 8%;
+    height: 10%;
     border-radius: 20px;
     background-color: white;
 `
@@ -58,42 +57,45 @@ const Field = styled.input`
 width: 60%;
 `
 
-const SignInForm = ({changeUser, changePass, login}) => {/* 
+const SignUpForm = () => {
     const [username, setUser] = useState('');
-    const [pass, setPass] = useState(''); */
+    const [pass, setPass] = useState('');
 
-/*     const handleSubmit = async () => {
+    const handleSubmit = async () => {
         const payload = { username, pass }
         await api.createAccount(payload).then((res) => {
             console.log(res);
         })
-    } */
+    }
 
     return (
         <Container>
             <FormBody>
                 <Logo src={owlImage} alt="" />
-                <Header>Sign In</Header>
+                <Header>Sign Up</Header>
                 <InputContainer>
                     <InputLabel htmlFor="inputEmail">Username or Email Address</InputLabel>
                     <Field type="text" id="inputEmail" placeholder="Email Address"
-                        onChange={(e) => { changeUser(e.target.value) }}
+                        onChange={(e) => { setUser(e.target.value) }}
+                        value={username}
                     />
                 </InputContainer>
                 <InputContainer>
                     <InputLabel htmlFor="inputPassword">Password</InputLabel>
                     <Field type="password" id="inputPassword" placeholder="Password" required autoFocus
-                        onChange={(e) => { changePass(e.target.value) }}
+                        onChange={(e) => { setPass(e.target.value) }}
                     />
                 </InputContainer>
-                <InputContainer style={{ textAlign: 'center' }} >
-                    <Field style={{ width: '5%' }} type="checkbox" id="rememberCheck" />
-                    <label htmlFor="rememberCheck">Remember Me</label>
+                <InputContainer>
+                    <InputLabel htmlFor="verifyPassword">Password</InputLabel>
+                    <Field type="password" id="verifyPassword" placeholder="Password" required autoFocus
+                        onChange={(e) => { setPass(e.target.value) }}
+                    />
                 </InputContainer>
-                <Button onClick={login}>Sign In</Button>
+                <Button onClick={handleSubmit}>Sign Up</Button>
             </FormBody>
         </Container>
     )
 }
 
-export default SignInForm
+export default SignUpForm

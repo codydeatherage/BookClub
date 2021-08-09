@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-
-import bgImage from './../assets/janko.jpg'
 import SignInForm from './SignInForm'
 
 const LoginReplace = () => {

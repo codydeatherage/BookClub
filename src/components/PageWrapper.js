@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 
 import image from './../assets/owl.jpg';
-class PageWrapper extends Component{
-    render(){
+const PageWrapper = ({children, logout}) =>{
+    
         return(
             <div>
             <nav className="navbar navbar-expand-lg navbar-light justify-content-between fixed-top">
@@ -40,15 +40,15 @@ class PageWrapper extends Component{
                         </ul>
                         <form className="form-inline my-2 my-lg-0">
                             {/* <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"></input> */}
-                                <Link to="signUp">
-                                    <button className="btn border border-secondary my-2 my-sm-0 rounded-pill" type="submit">Sign Up</button>
-                                </Link>
+                                {/* <Link to="signUp"> */}
+                                    <button className="btn border border-secondary my-2 my-sm-0 rounded-pill" onClick={logout}>Log Out</button>
+                                {/* </Link> */}
                         </form>
                     </div>
                  </nav>
-            {this.props.children}
+            {children}
             </div>);
-    }
+    
 }
 
 export default PageWrapper;
