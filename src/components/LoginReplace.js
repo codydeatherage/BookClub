@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import SignInForm from './SignInForm'
+import SignInForm from './forms/SignInForm'
 
 const LoginReplace = () => {
 

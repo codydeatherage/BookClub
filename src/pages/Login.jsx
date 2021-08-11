@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import SignInForm from '../components/SignInForm'
-import SignUpForm from '../components/SignUpForm'
+import SignInForm from '../components/forms/SignInForm'
+import SignUpForm from '../components/forms/SignUpForm'
+import FormSelect from '../components/forms/FormSelect'
 import Particles from 'react-particles-js'
 
 const Background = styled.div`
@@ -15,8 +16,10 @@ const Background = styled.div`
 const Login = ({ changeUser, changePass, login }) => {
     return (
         <Background>
+            <SignInForm changeUser={changeUser} changePass={changePass} login={login}>
 
-            <SignInForm changeUser={changeUser} changePass={changePass} login={login}></SignInForm>
+
+            </SignInForm>
             <Particles
                 params={{
                     particles: {
