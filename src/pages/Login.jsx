@@ -1,8 +1,11 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import SignInForm from '../components/forms/SignInForm'
 import SignUpForm from '../components/forms/SignUpForm'
-import FormSelect from '../components/forms/FormSelect'
+
+import Form from '../components/forms/Form'
+
+import ModalFormFrame from '../components/forms/ModalFormFrame'
 import Particles from 'react-particles-js'
 
 const Background = styled.div`
@@ -13,13 +16,30 @@ const Background = styled.div`
 
 
 `
+
 const Login = ({ changeUser, changePass, login }) => {
+    const [form, setForm] = useState('signin');
+
+    const setSignin = () => {
+        setForm('signin');
+    }
+
+    const setSignup = () => {
+        setForm('signup');
+    }
+
     return (
         <Background>
-            <SignInForm changeUser={changeUser} changePass={changePass} login={login}>
+            <ModalFormFrame signin={setSignin} signup={setSignup}>
+
+                <Form type={form} changeUser={changeUser} changePass={changePass} login={login} />
+                {/*                 {form === 'signin'}
+                <SignInForm changeUser={changeUser} changePass={changePass} login={login}>
 
 
-            </SignInForm>
+                </SignInForm> */}
+            </ModalFormFrame>
+
             <Particles
                 params={{
                     particles: {
