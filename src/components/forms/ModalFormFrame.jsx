@@ -13,6 +13,7 @@ const CtrlContainer = styled.div`
 `
 
 const Frame = styled.div`
+    z-index: 99;
     position: absolute;
     margin-top: 10vh;
     left: calc(50% - 10vw);
@@ -22,11 +23,13 @@ const Frame = styled.div`
     min-height: 450px;
     border-radius: 10%;
     overflow: hidden;
+    background: linear-gradient(to right bottom, #bdc3c7, #000000);
 `
 
 const Button = styled.div`
     width: 50%;
     height: 70%;
+    z-index: 99;
     text-align: center;
     padding: 3%;
 `

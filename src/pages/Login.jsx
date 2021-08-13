@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import SignInForm from '../components/forms/SignInForm'
-import SignUpForm from '../components/forms/SignUpForm'
-
+import { CSSTransition } from 'react-transition-group';
+import Fade from '../lib/Fade'
 import Form from '../components/forms/Form'
 
 import ModalFormFrame from '../components/forms/ModalFormFrame'
 import Particles from 'react-particles-js'
+import '../App.css'
 
 const Background = styled.div`
     width: 100vw;
@@ -18,21 +18,71 @@ const Background = styled.div`
 `
 
 const Login = ({ changeUser, changePass, login }) => {
+    const [signin, setSignin] = useState(true);
+    const [signup, setSignup] = useState(false);
     const [form, setForm] = useState('signin');
 
-    const setSignin = () => {
-        setForm('signin');
+    useEffect(() => {
+        setSignin(true)
+    }, []);
+
+    const handleSignin = () => {
+        if (signup) {
+            setSignup(false);
+        }
+        setSignin(true);
     }
 
-    const setSignup = () => {
-        setForm('signup');
+    const handleSignup = () => {
+        if (signin) {
+            setSignin(false);
+        }
+        setSignup(true);
     }
 
     return (
         <Background>
-            <ModalFormFrame signin={setSignin} signup={setSignup}>
+            <ModalFormFrame signin={handleSignin} signup={handleSignup}>
 
-                <Form type={form} changeUser={changeUser} changePass={changePass} login={login} />
+                {signin &&
+                    (<>
+                        <Fade type="fadein" delay={200} duration={500}>
+                            <Form type='signin' changeUser={changeUser} changePass={changePass} login={login} />
+                        </Fade>
+                        <CSSTransition
+                            in={signup}
+                            timeout={300}
+                            classNames="fade"
+                            unmountOnExit
+                            onEnter={() => setSignin(false)}
+                            onExited={() => setSignin(true)}
+                        >
+                            <Form type='signup' changeUser={changeUser} changePass={changePass} login={login} />
+                        </CSSTransition>
+                    </>
+                    )
+                }
+
+                 <CSSTransition
+                    in={signup}
+                    timeout={300}
+                    classNames="fade"
+                    unmountOnExit
+                    onEnter={() => setSignin(false)}
+                    onExited={() => setSignin(true)}
+                >
+                    <Form type='signup' changeUser={changeUser} changePass={changePass} login={login} />
+                </CSSTransition>
+                {/*         <CSSTransition
+                    in={signin}
+                    timeout={300}
+                    classNames="fade"
+                    unmountOnExit
+                    onEnter={() => setSignup(false)}
+                    onExited={() => setSignup(true)}
+                >
+                    <Form type='signup' changeUser={changeUser} changePass={changePass} login={login} />
+                </CSSTransition> */}
                 {/*                 {form === 'signin'}
                 <SignInForm changeUser={changeUser} changePass={changePass} login={login}>
 

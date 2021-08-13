@@ -1,12 +1,12 @@
 import styled from 'styled-components'
-import React, { useState } from 'react'
+import React, { useState, useEffect} from 'react'
 import owlImage from '../../assets/owl.jpg'
 import api from '../../api'
 
 const FormBody = styled.div.attrs({
     className: 'form-signin'
 })`
-    height: 100%;
+    height: 85%;
     width: 100%;
     text-align: center;
 `
@@ -57,13 +57,19 @@ const Field = styled.input`
 const SignUpForm = () => {
     const [username, setUser] = useState('');
     const [pass, setPass] = useState('');
-
+    const [visible, setVisible] = useState(true)
     const handleSubmit = async () => {
         const payload = { username, pass }
         await api.createAccount(payload).then((res) => {
             console.log(res);
         })
     }
+
+    useEffect(() =>{
+
+
+
+    },[])
 
     return (
         <Container>

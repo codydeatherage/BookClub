@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import owlImage from '../../assets/owl.jpg'
 import Input from '../Input'
 import api from '../../api'
-
+import styles from './Form.module.css'
 const FormBody = styled.div.attrs({
     className: 'form-signin'
 })`
@@ -61,7 +61,7 @@ const SignInForm = ({changeUser, changePass, login}) => {
             <FormBody>
                 {/* <FormSelect/> */}
                 <Logo src={owlImage} alt="" />
-                <Header>Sign In</Header>
+                {/* <Header>Sign In</Header> */}
                 <InputContainer>
                     <InputLabel htmlFor="inputEmail">Username or Email Address</InputLabel>
                     <Field type="text" id="inputEmail" placeholder="Email Address"
