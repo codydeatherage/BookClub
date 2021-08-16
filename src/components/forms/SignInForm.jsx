@@ -2,9 +2,8 @@ import styled from 'styled-components'
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import owlImage from '../../assets/owl.jpg'
-import Input from '../Input'
-import api from '../../api'
-import styles from './Form.module.css'
+import { CSSTransition } from 'react-transition-group';
+
 const FormBody = styled.div.attrs({
     className: 'form-signin'
 })`
@@ -42,6 +41,7 @@ const Button = styled.button`
 
 const InputContainer = styled.div`
 width: 100%;
+
 color: rgb(190, 199, 171);
 /* text-align: left; */
 margin: 0 auto;
@@ -51,29 +51,68 @@ const InputLabel = styled.label`
 width: 100%;
 `
 
-const Field = styled.input`
+const Field = styled.input.attrs({
+    className: 'rounded-pill'
+})`
 width: 60%;
+border: ${props => props.active ? '2px solid #d9534f' : null};
 `
 
-const SignInForm = ({changeUser, changePass, login}) => {
+const Border = styled.div`
+    width: 100%;
+    height: 100%;
+    border: ${props => props.valid ? '2px solid #5cb85c' : '2px solid #d9534f'}
+
+`
+
+const SignInForm = ({ changeUser, changePass, login }) => {
+    const [userActive, setUserActive] = useState(false);
+    const [passActive, setPassActive] = useState(false);
+    const [borderStyle, setBorderStyle] = useState({user: '', pass:''});
+    const borderSuccess = '2px solid #5cb85c';
+    const borderDanger = '2px solid #d9534f';
+    const handleSelect = (el) => {
+        if (el === 'user') {
+            if (userActive === false) {
+                setUserActive('valid');
+                setBorderStyle({user: borderSuccess, pass: borderStyle.pass});
+            }
+            setPassActive(false)
+        }
+        if (el === 'pass') {
+            if (passActive === false) {
+                setPassActive('valid');
+                setBorderStyle({user: '', pass: borderSuccess});
+            }
+            setUserActive(false);
+        }
+    }
+
+
+
     return (
         <Container>
             <FormBody>
-                {/* <FormSelect/> */}
                 <Logo src={owlImage} alt="" />
                 {/* <Header>Sign In</Header> */}
+
                 <InputContainer>
                     <InputLabel htmlFor="inputEmail">Username or Email Address</InputLabel>
                     <Field type="text" id="inputEmail" placeholder="Email Address"
                         onChange={(e) => { changeUser(e.target.value) }}
+                        onClick={() => handleSelect('user')}
+                        style={{border: `${borderStyle.user}`}}
                     />
                 </InputContainer>
                 <InputContainer>
                     <InputLabel htmlFor="inputPassword">Password</InputLabel>
-                    <Field type="password" id="inputPassword" placeholder="Password" required autoFocus
+                    <Field type="password" id="inputPassword" placeholder="Password" required
                         onChange={(e) => { changePass(e.target.value) }}
+                        onClick={() => handleSelect('pass')}
+                        style={{border: `${borderStyle.pass}`}}
                     />
                 </InputContainer>
+
                 <InputContainer style={{ textAlign: 'center' }} >
                     <Field style={{ width: '5%' }} type="checkbox" id="rememberCheck" />
                     <label htmlFor="rememberCheck">Remember Me</label>
