@@ -5,6 +5,7 @@ import './App.css';
 import PageWrapper from './components/PageWrapper';
 import LoginReplace from './components/LoginReplace';
 import Home from './components/Home';
+import api from './api/index'
 import Footer from './components/Footer';
 import Login from './pages/Login'
 const App = () => {
@@ -19,7 +20,9 @@ const App = () => {
     if (username && password) {
 
       setUser(user);
-      localStorage.setItem('user', user);
+      api.createAccount(user).then(() =>{
+        localStorage.setItem('user', user);
+      })
     }
     else{
       window.alert('please enter username/password');
