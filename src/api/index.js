@@ -5,10 +5,11 @@ const api = axios.create({
 })
 
 export const createAccount = payload => api.post('/signup', payload)
-
+export const login = payload => api.post('/login', payload)
 
 const apis = {
-    createAccount
+    createAccount,
+    login
 }
 
 export default apis

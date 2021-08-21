@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import api from '../../api'
 import owlImage from '../../assets/owl.jpg'
 import { CSSTransition } from 'react-transition-group';
 
@@ -65,12 +66,23 @@ const Border = styled.div`
 
 `
 
-const SignInForm = ({ changeUser, changePass, login }) => {
+const SignInForm = ({ changeUser, changePass}) => {
+    const [username, setUser] = useState('')
+    const [pass, setPass] = useState('')
+    const [warning, setWarning] = useState(false)
+
+    const login = async () => {
+        const payload = {username, pass};
+        await api.login(payload).then((res)=>{
+            console.log(res);
+        })
+    }
     const [userActive, setUserActive] = useState(false);
     const [passActive, setPassActive] = useState(false);
     const [borderStyle, setBorderStyle] = useState({user: '', pass:''});
     const borderSuccess = '2px solid #5cb85c';
     const borderDanger = '2px solid #d9534f';
+
     const handleSelect = (el) => {
         if (el === 'user') {
             if (userActive === false) {
@@ -99,7 +111,7 @@ const SignInForm = ({ changeUser, changePass, login }) => {
                 <InputContainer>
                     <InputLabel htmlFor="inputEmail">Username or Email Address</InputLabel>
                     <Field type="text" id="inputEmail" placeholder="Email Address"
-                        onChange={(e) => { changeUser(e.target.value) }}
+                        onChange={(e) => { setUser(e.target.value) }}
                         onClick={() => handleSelect('user')}
                         style={{border: `${borderStyle.user}`}}
                     />
@@ -107,7 +119,7 @@ const SignInForm = ({ changeUser, changePass, login }) => {
                 <InputContainer>
                     <InputLabel htmlFor="inputPassword">Password</InputLabel>
                     <Field type="password" id="inputPassword" placeholder="Password" required
-                        onChange={(e) => { changePass(e.target.value) }}
+                        onChange={(e) => { setPass(e.target.value) }}
                         onClick={() => handleSelect('pass')}
                         style={{border: `${borderStyle.pass}`}}
                     />
