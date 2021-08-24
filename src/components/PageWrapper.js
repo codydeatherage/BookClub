@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import image from './../assets/owl.jpg'
 import NavCollapse from './nav/NavCollapse'
+
 const Nav = styled.div.attrs({
     className: "navbar navbar-expand-lg navbar-dark bg-dark"
 })`
@@ -10,9 +11,7 @@ const Nav = styled.div.attrs({
 
 `
 
-
 const PageWrapper = ({ children, logout }) => {
-
     return (
         <>
             <Nav>
@@ -28,7 +27,6 @@ const PageWrapper = ({ children, logout }) => {
             {children}
         </>
     );
-
 }
 
 export default PageWrapper;

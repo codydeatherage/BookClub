@@ -2,9 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { CSSTransition } from 'react-transition-group';
 import Fade from '../lib/Fade'
-import Form from '../components/forms/Form'
-
-import ModalFormFrame from '../components/forms/ModalFormFrame'
+import {Form, ModalFormFrame} from '../components/forms'
 import Particles from 'react-particles-js'
 import '../App.css'
 
@@ -13,37 +11,27 @@ const Background = styled.div`
     height: 100vh;
     background-color: rgb(24,24,24);
     background: linear-gradient(171deg, rgba(65,51,51,1) 0%, rgba(207,188,172,1) 0%, rgba(135,126,117,1) 17%, rgba(101,100,99,1) 28%, rgba(64,63,60,1) 44%, rgba(25,23,23,1) 75%, rgba(0,0,0,1) 95%);
-
-
 `
 
 const Login = ({ changeUser, changePass, login }) => {
     const [signin, setSignin] = useState(true);
     const [signup, setSignup] = useState(false);
-    const [form, setForm] = useState('signin');
 
-    useEffect(() => {
-        setSignin(true)
-    }, []);
+    useEffect(() => { setSignin(true) }, []);
 
     const handleSignin = () => {
-        if (signup) {
-            setSignup(false);
-        }
+        signup && setSignup(false); //a && b is same as if a, then b
         setSignin(true);
     }
 
     const handleSignup = () => {
-        if (signin) {
-            setSignin(false);
-        }
+        signin && setSignin(false);
         setSignup(true);
     }
 
     return (
         <Background>
             <ModalFormFrame signin={handleSignin} signup={handleSignup}>
-
                 {signin &&
                     (<>
                         <Fade type="fadein" delay={200} duration={500}>
@@ -62,8 +50,7 @@ const Login = ({ changeUser, changePass, login }) => {
                     </>
                     )
                 }
-
-                 <CSSTransition
+                <CSSTransition
                     in={signup}
                     timeout={300}
                     classNames="fade"
@@ -73,21 +60,6 @@ const Login = ({ changeUser, changePass, login }) => {
                 >
                     <Form type='signup' changeUser={changeUser} changePass={changePass} login={login} />
                 </CSSTransition>
-                {/*         <CSSTransition
-                    in={signin}
-                    timeout={300}
-                    classNames="fade"
-                    unmountOnExit
-                    onEnter={() => setSignup(false)}
-                    onExited={() => setSignup(true)}
-                >
-                    <Form type='signup' changeUser={changeUser} changePass={changePass} login={login} />
-                </CSSTransition> */}
-                {/*                 {form === 'signin'}
-                <SignInForm changeUser={changeUser} changePass={changePass} login={login}>
-
-
-                </SignInForm> */}
             </ModalFormFrame>
 
             <Particles
@@ -192,9 +164,7 @@ const Login = ({ changeUser, changePass, login }) => {
                     retina_detect: true
                 }}
             >
-
             </Particles>
-
         </Background>
     )
 }

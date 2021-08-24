@@ -73,6 +73,7 @@ const SignUpForm = () => {
             setWarning(false);
             const payload = { username, pass }
             await api.createAccount(payload).then((res) => {
+                
                 console.log(res);
             })
         }
