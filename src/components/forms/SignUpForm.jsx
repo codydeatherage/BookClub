@@ -3,62 +3,6 @@ import React, { useState, useEffect } from 'react'
 import owlImage from '../../assets/owl.jpg'
 import api from '../../api'
 
-const FormBody = styled.div.attrs({
-    className: 'form-signin'
-})`
-    height: 85%;
-    width: 100%;
-    text-align: center;
-`
-
-const Container = styled.div`
-    height: 100%;
-    width: 100%;
-    min-width: 300px;
-    border-radius: 10%;
-    font-family: 'Gowun Batang', serif;
-    background: linear-gradient(to right bottom, #bdc3c7, #000000);
-`
-
-const Logo = styled.img`
-    height: 80px;
-    border-radius: 50%;
-    margin-top: 20%;
-`
-
-const Header = styled.h1`
-    font-family: 'Gowun Batang', serif;
-    color: rgb(190, 199, 171);
-    font-size: 24px;
-`
-
-const Button = styled.button`
-    width: 50%;
-    height: 8%;
-    margin-top: 5%;
-    border-radius: 20px;
-    background-color: white;
-`
-
-const InputContainer = styled.div`
-    width: 100%;
-    color: rgb(190, 199, 171);
-    margin: 0 auto;
-`
-
-const InputLabel = styled.label`
-    width: 100%;
-`
-
-const Field = styled.input`
-    width: 60%;
-`
-
-const Warning = styled.h1`
-    color: #d9534f;
-    font-size: 14px;
-`
-
 const SignUpForm = () => {
     const [username, setUser] = useState('')
     const [pass, setPass] = useState('')
@@ -136,3 +80,59 @@ const SignUpForm = () => {
 }
 
 export default SignUpForm
+
+const FormBody = styled.div.attrs({
+    className: 'form-signin'
+})`
+    height: 85%;
+    width: 100%;
+    text-align: center;
+`
+
+const Container = styled.div`
+    height: 100%;
+    width: 100%;
+    min-width: 300px;
+    border-radius: 10%;
+    font-family: 'Gowun Batang', serif;
+    background: linear-gradient(to right bottom, #bdc3c7, #000000);
+`
+
+const Logo = styled.img`
+    height: 80px;
+    border-radius: 50%;
+    margin-top: 20%;
+`
+
+const Header = styled.h1`
+    font-family: 'Gowun Batang', serif;
+    color: rgb(190, 199, 171);
+    font-size: 24px;
+`
+
+const Button = styled.button`
+    width: 50%;
+    height: 8%;
+    margin-top: 5%;
+    border-radius: 20px;
+    background-color: white;
+`
+
+const InputContainer = styled.div`
+    width: 100%;
+    color: rgb(190, 199, 171);
+    margin: 0 auto;
+`
+
+const InputLabel = styled.label`
+    width: 100%;
+`
+
+const Field = styled.input`
+    width: 60%;
+`
+
+const Warning = styled.h1`
+    color: #d9534f;
+    font-size: 14px;
+`

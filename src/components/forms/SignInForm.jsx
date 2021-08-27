@@ -3,6 +3,55 @@ import React, { useState } from 'react'
 import api from '../../api'
 import owlImage from '../../assets/owl.jpg'
 
+const SignInForm = ({setCurrUser}) => {
+    const [username, setUser] = useState('')
+    const [pass, setPass] = useState('')
+    const [warning, setWarning] = useState(false);
+
+    const login = async () => {
+        const payload = { username, pass };
+        await api.login(payload).then((res) => {
+            console.log(res);
+            setCurrUser(username);
+            localStorage.setItem('user', username);
+        })
+            .catch((e) => {
+                setWarning(true)
+                console.error(e);
+            })
+    }
+
+    return (
+        <Container>
+            <FormBody>
+                <Logo src={owlImage} alt="" />
+                {warning &&
+                    <Warning >Check that username and password are correct</Warning>
+                }
+                <InputContainer>
+                    <InputLabel htmlFor="inputEmail">Username or Email Address</InputLabel>
+                    <Field type="text" id="inputEmail" placeholder="Email Address"
+                        onChange={(e) => { setUser(e.target.value) }}
+                    />
+                </InputContainer>
+                <InputContainer>
+                    <InputLabel htmlFor="inputPassword">Password</InputLabel>
+                    <Field type="password" id="inputPassword" placeholder="Password" required
+                        onChange={(e) => { setPass(e.target.value) }}
+                    />
+                </InputContainer>
+                <InputContainer style={{ textAlign: 'center' }} >
+                    <Field style={{ width: '5%' }} type="checkbox" id="rememberCheck" />
+                    <label htmlFor="rememberCheck">Remember Me</label>
+                </InputContainer>
+                <Button onClick={login}>Sign In</Button>
+            </FormBody>
+        </Container>
+    )
+}
+
+export default SignInForm
+
 const FormBody = styled.div.attrs({
     className: 'form-signin'
 })`
@@ -65,52 +114,3 @@ const Warning = styled.h1`
     color: #d9534f;
     font-size: 14px;
 `
-
-const SignInForm = ({setCurrUser}) => {
-    const [username, setUser] = useState('')
-    const [pass, setPass] = useState('')
-    const [warning, setWarning] = useState(false);
-
-    const login = async () => {
-        const payload = { username, pass };
-        await api.login(payload).then((res) => {
-            console.log(res);
-            setCurrUser(username);
-            localStorage.setItem('user', username);
-        })
-            .catch((e) => {
-                setWarning(true)
-                console.error(e);
-            })
-    }
-
-    return (
-        <Container>
-            <FormBody>
-                <Logo src={owlImage} alt="" />
-                {warning &&
-                    <Warning >Check that username and password are correct</Warning>
-                }
-                <InputContainer>
-                    <InputLabel htmlFor="inputEmail">Username or Email Address</InputLabel>
-                    <Field type="text" id="inputEmail" placeholder="Email Address"
-                        onChange={(e) => { setUser(e.target.value) }}
-                    />
-                </InputContainer>
-                <InputContainer>
-                    <InputLabel htmlFor="inputPassword">Password</InputLabel>
-                    <Field type="password" id="inputPassword" placeholder="Password" required
-                        onChange={(e) => { setPass(e.target.value) }}
-                    />
-                </InputContainer>
-                <InputContainer style={{ textAlign: 'center' }} >
-                    <Field style={{ width: '5%' }} type="checkbox" id="rememberCheck" />
-                    <label htmlFor="rememberCheck">Remember Me</label>
-                </InputContainer>
-                <Button onClick={login}>Sign In</Button>
-            </FormBody>
-        </Container>
-    )
-}
-
-export default SignInForm

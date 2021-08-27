@@ -1,6 +1,20 @@
 import React from 'react'
 import styled from 'styled-components'
 
+const ModalFormFrame = ({ children, signin, signup}) => {
+    return (
+        <Frame>
+            <CtrlContainer>
+                <Button onClick={signin}style={{ borderBottom: '2px solid black', borderRight: '1px solid black' }} >Sign In</Button>
+                <Button onClick={signup} style={{ borderBottom: '2px solid black', borderLeft: 'px solid black' }} >Sign Up</Button>
+            </CtrlContainer>
+            {children}
+        </Frame>
+    )
+}
+
+export default ModalFormFrame
+
 const CtrlContainer = styled.div`
     position: absolute;
     display: flex;
@@ -33,16 +47,3 @@ const Button = styled.div`
     text-align: center;
     padding: 3%;
 `
-const ModalFormFrame = ({ children, signin, signup}) => {
-    return (
-        <Frame>
-            <CtrlContainer>
-                <Button onClick={signin}style={{ borderBottom: '2px solid black', borderRight: '1px solid black' }} >Sign In</Button>
-                <Button onClick={signup} style={{ borderBottom: '2px solid black', borderLeft: 'px solid black' }} >Sign Up</Button>
-            </CtrlContainer>
-            {children}
-        </Frame>
-    )
-}
-
-export default ModalFormFrame

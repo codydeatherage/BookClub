@@ -7,9 +7,6 @@ const LoginReplace = () => {
     return (
         <div className="background justify-content-between">
             <SignInForm></SignInForm>
-                    {/* <div className="col-sm-9 col-md-7 col-lg-5 mx-auto"> */}
-                    {/*  */}
-                    {/* </div> */}
            
             
         </div>

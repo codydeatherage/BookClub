@@ -1,12 +1,12 @@
 import './index.css';
-import { ReactComponent as BellIcon } from './icons/bell.svg';
-import { ReactComponent as MessengerIcon } from './icons/messenger.svg';
-import { ReactComponent as CaretIcon } from './icons/caret.svg';
-import { ReactComponent as PlusIcon } from './icons/plus.svg';
-import { ReactComponent as CogIcon } from './icons/cog.svg';
-import { ReactComponent as ChevronIcon } from './icons/chevron.svg';
-import { ReactComponent as ArrowIcon } from './icons/arrow.svg';
-import { ReactComponent as BoltIcon } from './icons/bolt.svg';
+import { ReactComponent as BellIcon } from './icons/bell-fill.svg';
+import { ReactComponent as MessengerIcon } from './icons/envelope-fill.svg';
+import { ReactComponent as CaretIcon } from './icons/caret-down-fill.svg';
+import { ReactComponent as PlusIcon } from './icons/plus-lg.svg';
+import { ReactComponent as CogIcon } from './icons/gear-fill.svg';
+import { ReactComponent as ChevronIcon } from './icons/chevron-down.svg';
+import { ReactComponent as ArrowIcon } from './icons/arrow-down.svg';
+import { ReactComponent as BoltIcon } from './icons/lightning-charge-fill.svg';
 
 import React, { useState, useEffect, useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
