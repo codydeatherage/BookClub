@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import './App.css';
 
 import PageWrapper from './components/PageWrapper';
-import Home from './components/Home';
+import Home from './pages/Home';
 import Login from './pages/Login'
 const App = () => {
 

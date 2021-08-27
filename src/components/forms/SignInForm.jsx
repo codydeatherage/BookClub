@@ -67,20 +67,20 @@ const Warning = styled.h1`
 `
 
 const SignInForm = ({setCurrUser}) => {
-    const [user, setUser] = useState('')
+    const [username, setUser] = useState('')
     const [pass, setPass] = useState('')
     const [warning, setWarning] = useState(false);
-    console.log('Signin');
+
     const login = async () => {
-        const payload = { user, pass };
+        const payload = { username, pass };
         await api.login(payload).then((res) => {
             console.log(res);
-            setCurrUser(user);
-            localStorage.setItem('user', user);
+            setCurrUser(username);
+            localStorage.setItem('user', username);
         })
-            .catch((er) => {
+            .catch((e) => {
                 setWarning(true)
-                console.log('errorr', er);
+                console.error(e);
             })
     }
 
@@ -89,7 +89,7 @@ const SignInForm = ({setCurrUser}) => {
             <FormBody>
                 <Logo src={owlImage} alt="" />
                 {warning &&
-                    <Warning >Check that userame and password are correct</Warning>
+                    <Warning >Check that username and password are correct</Warning>
                 }
                 <InputContainer>
                     <InputLabel htmlFor="inputEmail">Username or Email Address</InputLabel>
