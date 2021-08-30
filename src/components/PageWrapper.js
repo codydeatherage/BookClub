@@ -46,11 +46,12 @@ const PageWrapper = ({ children, logout }) => {
                     <img className="img-size rounded-circle" src={image} alt=""></img>
                     <label style={{ color: 'white' }} className="navbar-padding">Huddle</label>
                 </Link>
-                <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="bi bi-person-circle"></span>
-                </button>
-                {width <= 998 ?
+                {width <= 700 ? <>
+                    <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span className="bi bi-person-circle"></span>
+                    </button>
                     <NavCollapse toggler="navbarResponsive" logout={logout} ></NavCollapse>
+                </>
                     :
                     <NavCollapse toggler="navbarResponsive" outer logout={logout}></NavCollapse>
                 }
