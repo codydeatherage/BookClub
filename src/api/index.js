@@ -6,10 +6,12 @@ const api = axios.create({
 
 export const createAccount = payload => api.post('/signup', payload)
 export const login = payload => api.post('/login', payload)
+export const searchVolumes = volume => api.get(`/search/volume/${volume}`)
 
 const apis = {
     createAccount,
-    login
+    login,
+    searchVolumes
 }
 
 export default apis
