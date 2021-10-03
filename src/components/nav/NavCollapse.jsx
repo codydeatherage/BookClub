@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import NavItem from './NavItem'
 import styled from 'styled-components'
 import '../../App.css'
@@ -15,7 +16,7 @@ const NavCollapse = ({ toggler, logout, outer }) => {
                 >
                 </Button>
                 <DropDownMenu aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">Action</a>
+                    <Link to="/profile" className="dropdown-item">My Profile</Link>
                     <a class="dropdown-item" href="#">Another action</a>
                     <a class="dropdown-item" href="#">Something else here</a>
                 </DropDownMenu>
