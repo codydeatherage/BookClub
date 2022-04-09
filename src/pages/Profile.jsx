@@ -2,8 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import img from '../assets/doggy.PNG'
 const Profile = () => {
-
-
     return (
         <>
             <Banner>Upload a Banner Image

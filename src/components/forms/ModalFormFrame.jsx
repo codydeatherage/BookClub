@@ -37,8 +37,9 @@ const Frame = styled.div`
     min-height: 450px;
     border-radius: 10%;
     overflow: hidden;
-    background: linear-gradient(to right bottom, #bdc3c7, #000000);
-`
+    background: rgba(171, 231, 245, 0);
+    
+`//linear-gradient(to right bottom, #bdc3c7, #000000)
 
 const Button = styled.div`
     width: 50%;

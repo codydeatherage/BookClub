@@ -2,7 +2,6 @@ import styled from 'styled-components'
 import React, { useState } from 'react'
 import api from '../../api'
 import owlImage from '../../assets/owl.jpg'
-
 const SignInForm = ({setCurrUser}) => {
     const [username, setUser] = useState('')
     const [pass, setPass] = useState('')
@@ -66,7 +65,8 @@ const Container = styled.div`
     min-width: 300px;
     border-radius: 10%;
     font-family: 'Gowun Batang', serif;
-    background: linear-gradient(to right bottom, #bdc3c7, #000000);
+    background: #F8FFF0;
+    border: 1px solid black;
 `
 
 const Logo = styled.img`

@@ -4,14 +4,23 @@ import { CSSTransition } from 'react-transition-group';
 import Fade from '../lib/Fade'
 import {Form, ModalFormFrame} from '../components/forms'
 import Particles from 'react-particles-js'
+import img from '../assets/gradient1.jpg'
 import '../App.css'
 
 const Background = styled.div`
     width: 100vw;
     height: 100vh;
     background-color: rgb(24,24,24);
-    background: linear-gradient(171deg, rgba(65,51,51,1) 0%, rgba(207,188,172,1) 0%, rgba(135,126,117,1) 17%, rgba(101,100,99,1) 28%, rgba(64,63,60,1) 44%, rgba(25,23,23,1) 75%, rgba(0,0,0,1) 95%);
+    background-image: ${props=> props.src.main} ;
+    background-size: cover;
+    background-repeat: no-repeat;
 `
+Background.defaultProps = {
+    src: {
+        main: `url(${img})`
+    }
+}
+/* linear-gradient(171deg, rgba(65,51,51,1) 0%, rgba(207,188,172,1) 0%, rgba(135,126,117,1) 17%, rgba(101,100,99,1) 28%, rgba(64,63,60,1) 44%, rgba(25,23,23,1) 75%, rgba(0,0,0,1) 95%) */
 
 const Login = ({ changeUser, changePass, login }) => {
     const [signin, setSignin] = useState(true);
@@ -27,6 +36,15 @@ const Login = ({ changeUser, changePass, login }) => {
     const handleSignup = () => {
         signin && setSignin(false);
         setSignup(true);
+    }
+
+    const generateColor = () => {
+        const colors = ['#596BFD',  '#D87F9D', '#7FCEF5', '#D7CECC'];
+        const a = Math.floor(Math.random() * 256);
+        const b = Math.floor(Math.random() * 256);
+        const c = Math.floor(Math.random() * 256);
+        console.log(`rgb(${a}, ${b}, ${c})`);
+        return `rgb(${a}, ${b}, ${c})`;
     }
 
     return (
@@ -62,7 +80,7 @@ const Login = ({ changeUser, changePass, login }) => {
                 </CSSTransition>
             </ModalFormFrame>
 
-            <Particles
+            {/* <Particles
                 params={{
                     particles: {
                         number: {
@@ -73,13 +91,13 @@ const Login = ({ changeUser, changePass, login }) => {
                             }
                         },
                         color: {
-                            value: "#ffffff"
+                            value: {generateColor} //596BFD  D87F9D
                         },
                         shape: {
                             type: "polygon",
                             stroke: {
                                 width: 0,
-                                color: "#2a34d7"
+                                color: 
                             },
                             polygon: {
                                 nb_sides: 9
@@ -164,7 +182,7 @@ const Login = ({ changeUser, changePass, login }) => {
                     retina_detect: true
                 }}
             >
-            </Particles>
+            </Particles> */}
         </Background>
     )
 }

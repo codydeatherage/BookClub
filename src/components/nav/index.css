@@ -10,7 +10,16 @@ body {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
       monospace;
   }
+
+/*   .btn-primary{
+    color: red;
+    background-color: yellow;
+  } */
   
+/*   .btn-danger:hover{
+    background-color: #b713af;
+    color: black;
+  } */
   
   :root {
     --bg:  #242526;

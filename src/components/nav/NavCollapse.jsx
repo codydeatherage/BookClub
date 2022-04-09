@@ -18,7 +18,7 @@ const NavCollapse = ({ toggler, logout, outer }) => {
                 <DropDownMenu aria-labelledby="dropdownMenuButton">
                     <Link to="/profile" className="dropdown-item">My Profile</Link>
                     <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
+                    <a onClick={logout} class="dropdown-item" href="#">Log out</a>
                 </DropDownMenu>
             </>
         )
