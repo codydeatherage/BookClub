@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
 import './App.css';
 
 import PageWrapper from './components/PageWrapper'
+import Dashboard from './pages/Dashboard';
 import Home from './pages/Home'
 import Login from './pages/Login'
 import Profile from './pages/Profile'
@@ -36,13 +37,17 @@ const App = () => {
           <Route
             exact={true}
             path="/"
-            component={Home}
-          />
+            /* component={user ? <Dashboard/> : <Home/>} */
+          >
+          {user ? <Dashboard/> : <Home/>}
+          </Route>
           <Route
             exact
-            path="/login"
-            component={Login}
-          />
+            path="/login"/* 
+            element={user <Login changeUser={setUsername}/>} */
+          >
+            {user ? <Redirect to="/" /> : <Login changeUser={setUsername} />}
+          </Route>
           <Route
             exact
             path="/profile"

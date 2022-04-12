@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import React, { useState } from 'react'
 import api from '../../api'
 import owlImage from '../../assets/owl.jpg'
-const SignInForm = ({setCurrUser}) => {
+const SignInForm = ({ setCurrUser }) => {
     const [username, setUser] = useState('')
     const [pass, setPass] = useState('')
     const [warning, setWarning] = useState(false);
@@ -15,8 +15,9 @@ const SignInForm = ({setCurrUser}) => {
             localStorage.setItem('user', username);
         })
             .catch((e) => {
-                setWarning(true)
-                console.error(e);
+                console.log('Login Failed');
+                setWarning(true);
+               /*  console.error(e); */
             })
     }
 
